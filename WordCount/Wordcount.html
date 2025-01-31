@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .word-count {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="sentenceInput" placeholder="Type a sentence" oninput="updateWordCount()">
+    <div class="word-count" id="wordCount">Word Count: 0</div>
+
+    <script>
+        function updateWordCount() {
+            const sentence = document.getElementById('sentenceInput').value;
+            const words = sentence.trim().split(/\s+/).filter(word => word.length > 0);
+            document.getElementById('wordCount').innerText = `Word Count: ${words.length}`;
+        }
+    </script>
+</body>
+</html>
